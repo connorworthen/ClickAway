@@ -1,54 +1,54 @@
-  <!DOCTYPE html>
-  <html>
+<!DOCTYPE html>
+<html>
 
-  <head>
-    <div class="center hero-unit">
-      <h1>AClickAway</h1>
-      <%= form_tag(search_page_path, :method => "get", class: 'navbar-form navbar-left') do %>
-      <div class="input-group">
-        <%= search_field_tag :search, params[:search], placeholder: "Product Search", class: "form-control" %>
-        <div class="input-group-btn">
-          <%= button_tag "Search", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>
-        </div>
+<head>
+  <div class="center hero-unit">
+    <h1>AClickAway</h1>
+    <%= form_tag(search_page_path, :method => "get", class: 'navbar-form navbar-left') do %>
+    <div class="input-group">
+      <%= search_field_tag :search, params[:search], placeholder: "Product Search", class: "form-control" %>
+      <div class="input-group-btn">
+        <%= button_tag "Search", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>
       </div>
-      <% end %>
-      <%= csrf_meta_tags %>
-      <%= csp_meta_tag %>
-      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-      <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     </div>
-  </head>
-
-  <body>
-    <header class="navbar navbar-fixed-top navbar-inverse">
-      <div class="navbar-inner">
-        <div class="container">
-          <nav>
-            <ul class="nav pull-right">
-              <% if current_user %>
-              <li><%= link_to 'Home', root_path %></li>
-              <li><%= link_to  "Manufacturer Info", manufacturers_path %></li>
-              <li><%= link_to "Show User Products", products_path %></li>
-              <li><%= link_to  "Review a Product", new_reviews_path %></li>
-              <li><%= link_to  "Edit User Info", edit_users_path(current_user) %></li>
-              <li><%= link_to 'Log Out', logout_path, method: "delete" %></li>
-              <% else %>
-              <div> <%= link_to 'Home', root_path %> | <%= link_to 'Log In', login_path %> or <%= link_to 'Sign Up', signup_path %> </div>
-              <% end %>
-            </ul>
-          </nav>
-        </div>
-      </div>
-    </header>
-    <div class="container">
-      <%= yield %>
-    </div>
-  </body>
-
-  <footer class="footer">
-    <% if current_user %>
-    <p><small><%= "Signed in as #{current_user.email}"  %> &copy; 2020 <strong>A Click Away</strong></small></p>
     <% end %>
-  </footer>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </div>
+</head>
 
-  </html>
+<body>
+  <header class="navbar navbar-fixed-top navbar-inverse">
+    <div class="navbar-inner">
+      <div class="container">
+        <nav>
+          <ul class="nav pull-right">
+            <% if current_user %>
+            <li><%= link_to 'Home', root_path %></li>
+            <li><%= link_to  "Manufacturer Info", manufacturers_path %></li>
+            <li><%= link_to "Show User Products", products_path %></li>
+            <li><%= link_to  "Review a Product", new_reviews_path %></li>
+            <li><%= link_to  "Edit User Info", edit_users_path(current_user) %></li>
+            <li><%= link_to 'Log Out', logout_path, method: "delete" %></li>
+            <% else %>
+            <div> <%= link_to 'Home', root_path %> | <%= link_to 'Log In', login_path %> or <%= link_to 'Sign Up', signup_path %> </div>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <%= yield %>
+  </div>
+</body>
+
+<footer class="footer">
+  <% if current_user %>
+  <p><small><%= "Signed in as #{current_user.email}"  %> &copy; 2020 <strong>A Click Away</strong></small></p>
+  <% end %>
+</footer>
+
+</html>
