@@ -1,0 +1,21 @@
+<h1>Manufacturers Index</h1>
+
+<% @manufacturers.each do |manufacturer| %>
+
+<li>Name: <%= @manufacturer.name %></li><br><br>
+
+<li>Established: <%= @manufacturer.established %></li><br><br>
+
+<li>Bio: <%= @manufacturer.bio %></li><br><br>
+
+<h4>
+  <%= link_to 'Edit', edit_manufacturer_path(@manufacturer) %><br>
+  <%= link_to 'Delete', manufacturers_path(@manufacturer), :method => :delete, data: {:confirm => "Are you sure?" } , :title => "Delete #{@manufacturer.name}" %><br>
+</h4>
+
+<h1>Create New Manufacturer<h1>
+    <h4>
+      <%= link_to "Create a new manufacturer", new_manufacturer_path %>
+    </h4>
+
+    <% end %>

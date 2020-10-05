@@ -1,0 +1,18 @@
+<h1>Update or Delete a Manufacturer</h1>
+
+<%= form_with(model: @manufacturer, local: true) do |f| %>
+
+<%= f.label :name %>:
+<%= f.text_field :name %><br><br>
+
+<%= f.label :established %>:
+<%= f.number_field :established, step: 2020 %><br><br>
+
+<%= f.label :bio %>:<br><br>
+<%= f.text_area :bio, :cols => 50, :rows => 7 %><br><br>
+
+<%= f.submit "Update Manufacturer" %><br><br>
+
+<%= link_to 'delete', manufacturers_path, :method => :delete, data: {:confirm => "Are you sure?" } , :title => "Delete #{@manufacturer.name}" %>
+
+<% end %>

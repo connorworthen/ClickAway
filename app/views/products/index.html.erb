@@ -1,0 +1,32 @@
+<h1>Products Index</h1>
+
+<% @products.each do |product| %>
+
+<li>Name: <%= @product.name %></li><br>
+
+<li>Price: <%= @product.price %></li><br>
+
+<li>Stock: <%= @product.stock %></li><br>
+
+<li>Description: <%= @product.description %></li><br>
+
+<li>Manufacturer: <%= @product.manufacturer_id %></li><br>
+
+<% end %>
+
+<h1>Product Review</h1>
+
+<% @reviews.each do |review| %>
+
+<li>Rating: <%= @review.rating %>/5.0</li><br>
+
+<li>Comment: <%= @review.comment %></li><br>
+
+<li><%= "Reviewed by #{current_user.email}" %></li><br>
+
+<h4><%= link_to 'Delete Review', reviews_path, :method => :delete, data: {:confirm => "Are you sure?" } , :title => "Delete #{@review}" %></h4><br>
+
+<h1>To show all products and reviews<h1>
+    <h4><%= link_to "Show all Products", products_path(@product) %></h4>
+
+    <% end %>

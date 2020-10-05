@@ -1,0 +1,9 @@
+<h1>Search Results:</h1>
+
+<% @products.each do |product| %>
+
+<h4>
+  <li><%= link_to product.name, user_products_path(@product) %></li>
+</h4>
+
+<% end %>

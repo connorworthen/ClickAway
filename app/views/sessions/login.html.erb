@@ -1,0 +1,27 @@
+<div id="formContent">
+  <h4>Log In</h4>
+
+  <%= form_with do |f| %>
+
+  <%= f.label :email %>
+  <%= f.email_field(:email) %><br>
+
+  <%= f.label :password %>
+  <%= f.password_field(:password) %><br>
+
+  <%= f.submit "Log In" %>
+
+  <% end %>
+
+  <section>
+    <h4>Don't have an account? <%= link_to "Sign up", signup_path %></h4>
+    <% if session[:user_id] %>
+    <h1><%= @user.name %></h1>
+    <h2>Email: <%= @user.email %></h2>
+    <h2>Facebook UID: <%= @user.uid %></h2>
+    <img src="<%= @user.image %>">
+    <% else %>
+    <h4>Login through Facebook <%= link_to "Log in", '/auth/facebook' %></h4>
+    <% end %>
+  </section>
+</div>

@@ -1,0 +1,22 @@
+<h3>Create New Product</h3>
+
+<%= form_with(model: @product, local: true) do |f| %>
+
+<%= f.label :name, "Name:" %>
+<%= f.text_field :name %><br><br>
+
+<%= f.label :price, "Price" %>
+<%= f.number_field :price, {min: 1.00, max: 100000.00} %><br><br>
+
+<%= f.label :stock, "Stock:" %>
+<%= f.number_field :stock, {min: 1, max: 10000} %><br><br>
+
+<%= f.label :manufacturer_id, "Manufacturer:" %>
+<%= f.collection_select :manufacturer_id, Manufacturer.all.sort_by{|m| m.name}, :id, :name, prompt: true  %><br><br>
+
+<%= f.label :description, "Description:" %>
+<%= f.text_area :description, :cols => 50, :rows => 7 %><br><br>
+
+<%= f.submit "Create New Product" %><br><br>
+
+<% end %>
