@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
 
     def correct_user
         @manufacturer = Manufacturer.find_by(id: params[:id])
-        return unless current_user
+        return if current_user
         flash[:alert] = "You are not allowed to access this part of the site"
         redirect_to root_path
     end
