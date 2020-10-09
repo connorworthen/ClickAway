@@ -25,15 +25,15 @@ class ProductsController < ApplicationController
     end 
     
     def create
-        @product = Product.create(product_params)
+        @product = Product.new(product_params)
         if @product.save
-            @product.update(user_ids: current_user.id)
-            # redirect_to products_path(@product)
+            # @product.update(user_ids: current_user.id)
+            Redirect_to product_path(@product.product_id)
             redirect_to root_path
         else
             render :new
         end
-    end 
+    end
 
     def edit
         product_helper
