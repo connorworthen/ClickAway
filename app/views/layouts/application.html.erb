@@ -27,9 +27,13 @@
           <ul class="nav pull-right">
             <% if current_user %>
             <li><%= link_to 'Home', root_path %></li>
-            <li><%= link_to  "Manufacturer Info", manufacturers_path %></li>
+            <li><%= link_to  "Create Manufacturer", new_manufacturer_path %></li>
             <li><%= link_to "Show User Products", products_path %></li>
-            <li><%= link_to  "Review a Product", new_reviews_path %></li>
+            <%
+=begin%>
+            <li><%= link_to  "Review a Product", product_review %></li>
+            <%
+=end%>
             <li><%= link_to  "Edit User Info", edit_users_path(current_user) %></li>
             <li><%= link_to 'Log Out', logout_path, method: "delete" %></li>
             <% else %>
