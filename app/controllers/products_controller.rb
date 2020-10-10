@@ -26,10 +26,8 @@ class ProductsController < ApplicationController
     
     def create
         @product = Product.new(product_params)
-        binding.pry
         if @product.save
             # @product.update(user_ids: current_user.id)
-            Redirect_to product_path(@product.product_id)
             redirect_to root_path
         else
             render :new
