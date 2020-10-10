@@ -21,6 +21,7 @@ class ProductsController < ApplicationController
     end
 
     def new
+        @manufacturer = Manufacturer.find_by(params[:id])
         @product = Product.new 
     end 
     
