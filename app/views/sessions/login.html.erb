@@ -1,27 +1,29 @@
-<div id="formContent">
-  <h4>Log In</h4>
+<h2>Log in</h2>
 
-  <%= form_with do |f| %>
+<%= form_for(:session, url: login_path) do |f| %>
 
-  <%= f.label :email %>
-  <%= f.email_field(:email) %><br>
+<div class="field">
+  <%= f.label :email %><br />
+  <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+</div>
 
-  <%= f.label :password %>
-  <%= f.password_field(:password) %><br>
+<div class="field">
+  <%= f.label :password_digest %><br />
+  <%= f.password_field :password_digest, autocomplete: "new-password" %>
+</div>
 
-  <%= f.submit "Log In" %>
+<div class="field">
+  <%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+</div>
 
-  <% end %>
+<div class="actions">
+  <%= f.submit "Log in" %>
+</div>
+<% end %>
 
-  <section>
-    <h4>Don't have an account? <%= link_to "Sign up", signup_path %></h4>
-    <% if session[:user_id] %>
-    <h1><%= @user.name %></h1>
-    <h2>Email: <%= @user.email %></h2>
-    <h2>Facebook UID: <%= @user.uid %></h2>
-    <img src="<%= @user.image %>">
-    <% else %>
-    <h4>Login through Facebook <%= link_to "Log in", '/auth/facebook' %></h4>
-    <% end %>
-  </section>
+<section>
+  <h4>Don't have an account? <%= link_to "Sign up", signup_path %></h4>
+  <h4>Login through Facebook <%= link_to "Log in", auth_facebook_callback_path %></h4>
+</section>
 </div>

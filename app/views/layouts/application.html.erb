@@ -30,10 +30,9 @@
             <li><%= link_to  "Create Manufacturer", new_manufacturer_path %></li>
             <li><%= link_to "Create a Product", new_manufacturer_product_path(:manufacturer_id, @product) %></li>
             <li><%= link_to  "Edit User Info", edit_users_path(current_user) %></li>
-            <li><%= link_to 'Log Out', logout_path, method: "delete" %></li>
+            <li><%= link_to 'Log Out', logout_path, method: :delete %></li>
             <% else %>
-            <div> <%= link_to 'Home', root_path %> | <%= link_to 'Log In', login_path %> or <%= link_to 'User Sign Up', signup_path %>
-              <%= link_to  "Manufacturer Sign Up", new_manufacturer_path %></div>
+            <div><%= link_to 'Log In', login_path %> || <%= link_to 'Sign Up', signup_path %></div>
             <% end %>
           </ul>
         </nav>
