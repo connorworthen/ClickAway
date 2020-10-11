@@ -1,12 +1,12 @@
 class ManufacturersController < ApplicationController
-    before_action :correct_user, only: [:edit, :update, :destroy]
+    # before_action :correct_user, only: [:edit, :update, :destroy]
 
-    def correct_user
-        @manufacturer = Manufacturer.find_by(id: params[:id])
-        return unless current_user
-        flash[:alert] = "You are not allowed to access this part of the site"
-        redirect_to root_path
-    end
+    # def correct_user
+    #     @manufacturer = Manufacturer.find_by(id: params[:id])
+    #     return unless current_user
+    #     flash[:alert] = "You are not allowed to access this part of the site"
+    #     redirect_to root_path
+    # end
 
     def index
         manufacturer_helper
@@ -18,9 +18,9 @@ class ManufacturersController < ApplicationController
     end
 
     def create
-        @manufacturer = Manufacturer.new(manufacturer_params)
+        @manufacturer = Manufacturer.create(manufacturer_params)
         if @manufacturer.save
-            @manufacturer.id = current_user.id
+            session[:manufacturer_id] = @manufacturer_id
             redirect_to root_path
         else
             render :new
