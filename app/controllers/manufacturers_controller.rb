@@ -1,4 +1,5 @@
 class ManufacturersController < ApplicationController
+    before_action :require_log_in, only: [:show]
     # before_action :correct_user, only: [:edit, :update, :destroy]
 
     # def correct_user
