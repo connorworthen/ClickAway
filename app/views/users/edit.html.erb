@@ -10,14 +10,13 @@
     <%= f.label :password %>
     <%= f.password_field :password %>
 
-    <% if @user.manufacturer? %>
-    <%= link_to  "Test is good", root_path %>
-
-    <% else %>
-    Not yet approved. (<%= link_to "Approve", manufacturer_user_path(@user), :method => :put %>)
+    <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
     <% end %>
 
-    <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+    <% if @user.manufacturer? %>
+    <%= link_to  "Approved. Create a Manufacturer here.", root_path %>
+    <% else %>
+    Not yet approved. (<%= link_to "Approve", manufacturer_user_path(@user), :method => :put %>)
     <% end %>
 
   </div>
