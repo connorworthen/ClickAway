@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get '/auth/facebook/callback' => 'sessions#omniauth'
   get 'auth/failure', to: redirect('/')
 
-  resource :users
+  resources :users
 
   resources :manufacturers, only: [:show, :search, :new, :create, :update, :destroy] do
     resources :products, only: [:new, :create, :update, :delete]

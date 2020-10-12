@@ -5,7 +5,6 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.integer :stock
       t.float :price
       t.text :description
-      t.references :user, null: false, foreign_key: true
     end
   end
 end

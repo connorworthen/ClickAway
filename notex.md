@@ -16,3 +16,10 @@ has mnay users through reviews
 
 no edit for product
 review join table
+
+t.references :user, null: false, foreign_key: true
+class AddManufacturerToUser < ActiveRecord::Migration[6.0]
+def change
+add_column :users, :manufacturer, :boolean, default: false
+end
+end

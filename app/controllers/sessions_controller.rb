@@ -9,12 +9,13 @@ class SessionsController < ApplicationController
   end 
 
  def create
-    @user = User.find_by(name: params[:user][:name])
-    if @user && @user.authenticate(params[:user][:password])
+    @user = User.find_by(name: params[:session][:name].downcase)
+    if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
-      redirect_to :root_path, flash[:alert] = "User not found."
+      flash[:danger] = 'Invalid name/password combination'
+      render 'new'
     end
   end
 
