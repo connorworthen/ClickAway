@@ -9,13 +9,12 @@ class SessionsController < ApplicationController
   end 
 
  def create
-    @user = User.find_by(name: params[:session][:name].downcase)
-    if @user && @user.authenticate(params[:session][:password])
+    @user = User.find_by_name(params[:name])
+    if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to user_path(@user)
+      redirect_to '/'
     else
-      flash[:danger] = 'Invalid name/password combination'
-      render 'new'
+      redirect_to '/login'
     end
   end
 
@@ -41,7 +40,7 @@ class SessionsController < ApplicationController
   private 
 
     def user_params
-      params.require(:user).permit(:name, :password_digest)
+      params.require(:user).permit(:name, :password)
     end
     
     def auth

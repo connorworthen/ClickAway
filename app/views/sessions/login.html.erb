@@ -1,20 +1,15 @@
 <h2>Log in</h2>
 
-<%= form_for(:session, url: login_path) do |f| %>
+<%= form_with do |f| %>
 
-<div class="field">
-  <%= f.label :name %><br />
-  <%= f.text_field :name, autofocus: true, autocomplete: "email" %>
-</div>
+<%= f.label :name %>
+<%= f.text_field(:name) %><br>
 
-<div class="field">
-  <%= f.label :password_digest %><br />
-  <%= f.password_field :password_digest, autocomplete: "new-password" %>
-</div>
+<%= f.label :password %>
+<%= f.password_field(:password) %><br>
 
-<div class="actions">
-  <%= f.submit "Log in" %>
-</div>
+<%= f.submit "Log In" %>
+
 <% end %>
 
 <section>
