@@ -23,3 +23,12 @@ def change
 add_column :users, :manufacturer, :boolean, default: false
 end
 end
+
+<% if @user.manufacturer? %>
+<%= @user.approved_on %>
+<% else %>
+Not yet approved. (<%= link_to "Approve", manufacturer_user_path(@user), :method => :put %>)
+<% end %>
+
+    <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+    <% end %>

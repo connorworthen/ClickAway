@@ -7,14 +7,15 @@
     <%= f.label :name %>
     <%= f.text_field :name %>
 
-    <%= f.label :username %>
-    <%= f.text_field :username %>
-
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-
     <%= f.label :password %>
     <%= f.password_field :password %>
+
+    <% if @user.manufacturer? %>
+    <%= link_to  "Test is good", root_path %>
+
+    <% else %>
+    Not yet approved. (<%= link_to "Approve", manufacturer_user_path(@user), :method => :put %>)
+    <% end %>
 
     <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
     <% end %>
