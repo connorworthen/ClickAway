@@ -11,10 +11,11 @@ class SessionsController < ApplicationController
  def create
     @user = User.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password_digest])
-      session[:user_id] = @user.id
-      redirect_to user_path(@user)
-    else 
+      # session[:user_id] = @user.id
       redirect_to root_path
+    else
+      flash[:alert] = "User not found."
+      # render :new
     end
   end
 
@@ -39,7 +40,7 @@ class SessionsController < ApplicationController
 
   private 
 
-    def user_paramas
+    def user_params
       params.require(:user).permit(:email, :password_digest)
     end
     
