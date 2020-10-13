@@ -24,9 +24,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    user_helper
-    if params[:name].update || params[:password].update
+    @user = User.find(params[:id])
+    if current_user.update(user_params)
+      # session[:user_id] = @user.id
       @user.save
+      flash[:success] = "Profile updated"
       redirect_to '/'
     else 
       render :edit 
@@ -52,5 +54,9 @@ class UsersController < ApplicationController
     
     def user_helper
       @user = User.find_by(params[:id])
+    end
+
+    def user_updater
+    
     end
 end
