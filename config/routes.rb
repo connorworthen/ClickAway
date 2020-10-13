@@ -24,7 +24,9 @@ Rails.application.routes.draw do
   end
 
   resources :users do
-    get :manufacturer, on: :member
+    collection do
+      get :become_manufacturer
+    end
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

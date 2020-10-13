@@ -23,18 +23,18 @@ class UsersController < ApplicationController
     user_helper
   end
 
-  # def update
-  #   user_helper
-  #   # user.update_attribute(:manufacturer, true)
-  #   if @user.save
-  #     redirect_to users_path(@user)
-  #   else 
-  #     render :edit 
-  #   end
-  # end
-
   def update
-    @user = User.find(params[:id])
+    user_helper
+    # user.update_attribute(:manufacturer, true)
+    if @user.save
+      redirect_to users_path(@user)
+    else 
+      render :edit 
+    end
+  end
+
+  def become_manufacturer
+    user_helper
     if @user.update_attribute(:manufacturer, true)
       flash[:notice] = "This user was approved to be a manufacturer."
       redirect_to '/'
