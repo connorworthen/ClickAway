@@ -25,36 +25,26 @@ class UsersController < ApplicationController
 
   # def update
   #   @user = User.find(params[:id])
-  #   if current_user.update(user_params)
+  #   if params[:commit] == "A" 
+  #     current_user.update(user_params)
   #     @user.save
-  #     flash[:success] = "Profile updated"
   #     redirect_to '/'
-  #   else 
-  #     render :edit 
+  #   else params[:commit] == "B"
+  #     @user.update_attribute(:manufacturer, true)
+  #     redirect_to '/'
   #   end
   # end
 
   def update
     @user = User.find(params[:id])
-    if params[:commit] == 'A'
+    if update_key?
       current_user.update(user_params)
-      @user.save
       redirect_to '/'
-    elsif params[:commit] == 'B'
+    else update_attribute?
       @user.update_attribute(:manufacturer, true)
       redirect_to '/'
     end
   end
-
-  # def edit2
-  #   user_helper
-  #   if @user.update_attribute(:manufacturer, true)
-  #     flash[:notice] = "This user was approved to be a manufacturer."
-  #     redirect_to '/'
-  #   else
-  #     flash[:error] = "There was an error approving the manufacturer. Please try again."
-  #   end
-  # end 
 
       
   private
@@ -67,7 +57,11 @@ class UsersController < ApplicationController
       @user = User.find_by(params[:id])
     end
 
-    def user_updater
-    
+    def update_attribute?
+      params[:commit] == "B"
+    end
+
+    def update_key?
+      params[:commit] == "A"
     end
 end

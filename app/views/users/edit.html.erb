@@ -8,15 +8,10 @@
 <%= f.label :password %>
 <%= f.password_field :password %>
 
+
 <%= f.submit "A" %><br>
 
 <h4>By saving changes, you are now a manufacturer</h4>
-
-<%
-=begin%>
-<%= if @user.update_attribute(:manufacturer, true) %>
-<%
-=end%>
 
 <%= f.submit "B" %>
 
