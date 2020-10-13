@@ -35,7 +35,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update_attribute(:manufacturer, false)
+    if @user.update_attribute(:manufacturer, true)
       flash[:notice] = "This user was approved to be a manufacturer."
       redirect_to '/'
     else
