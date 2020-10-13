@@ -23,15 +23,26 @@ class UsersController < ApplicationController
     user_helper
   end
 
+  # def update
+  #   @user = User.find(params[:id])
+  #   if current_user.update(user_params)
+  #     @user.save
+  #     flash[:success] = "Profile updated"
+  #     redirect_to '/'
+  #   else 
+  #     render :edit 
+  #   end
+  # end
+
   def update
     @user = User.find(params[:id])
-    if current_user.update(user_params)
-      # session[:user_id] = @user.id
+    if params[:commit] == 'A'
+      current_user.update(user_params)
       @user.save
-      flash[:success] = "Profile updated"
       redirect_to '/'
-    else 
-      render :edit 
+    elsif params[:commit] == 'B'
+      @user.update_attribute(:manufacturer, true)
+      redirect_to '/'
     end
   end
 
