@@ -25,23 +25,24 @@ class UsersController < ApplicationController
 
   def update
     user_helper
-    # user.update_attribute(:manufacturer, true)
-    if @user.save
-      redirect_to users_path(@user)
+    if params[:name].update || params[:password].update
+      @user.save
+      redirect_to '/'
     else 
       render :edit 
     end
   end
 
-  def become_manufacturer
-    user_helper
-    if @user.update_attribute(:manufacturer, true)
-      flash[:notice] = "This user was approved to be a manufacturer."
-      redirect_to '/'
-    else
-      flash[:error] = "There was an error approving the manufacturer. Please try again."
-  end
-end 
+  # def edit2
+  #   user_helper
+  #   if @user.update_attribute(:manufacturer, true)
+  #     flash[:notice] = "This user was approved to be a manufacturer."
+  #     redirect_to '/'
+  #   else
+  #     flash[:error] = "There was an error approving the manufacturer. Please try again."
+  #   end
+  # end 
+
       
   private
 
