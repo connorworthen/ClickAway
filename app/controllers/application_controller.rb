@@ -17,4 +17,17 @@ class ApplicationController < ActionController::Base
     end 
   end
 
+  def change_boolean
+    
+  end
+
+  def manufacturer
+    original = self[:manufacturer]
+    transform(original)
+  end
+
+  def manufacturer=(m)
+    self[:manufacturer] = reverse_transform(m)
+  end
+
 end

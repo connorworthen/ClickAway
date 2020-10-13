@@ -47,3 +47,11 @@ else
 render :edit
 end
 end
+
+<% if @user.manufacturer? %>
+<%= link_to "Approved. Create a Manufacturer here.", root_path %>
+<% else %>
+Not yet approved. (<%= link_to "Approve", manufacturer_user_path(@user), :method => :put %>)
+<%= f.label :manufacturer %>
+<%= f.boolean_field :manufacturer %>
+<% end %>
