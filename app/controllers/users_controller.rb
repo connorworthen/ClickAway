@@ -23,30 +23,28 @@ class UsersController < ApplicationController
     user_helper
   end
 
+  def update
+    @user = User.find_by_id(2)
+    @user.update(user_params)
+    if @user.save
+      redirect_to '/'
+    else 
+      render :edit 
+    end 
+  end
+
   # def update
   #   @user = User.find(params[:id])
-  #   if params[:commit] == "A" 
-  #     current_user.update(user_params)
-  #     @user.save
+  #   if
+  #     @user.toggle(:manufacturer).save
   #     redirect_to '/'
-  #   else params[:commit] == "B"
-  #     @user.update_attribute(:manufacturer, true)
+  #   else
   #     redirect_to '/'
   #   end
   # end
 
-  def update
-    @user = User.find(params[:id])
-    if update_key?
-      current_user.update(user_params)
-      redirect_to '/'
-    else update_attribute?
-      @user.update_attribute(:manufacturer, true)
-      redirect_to '/'
-    end
-  end
+# delete accounts/ toggle! ? / if params1 no change then else or empty or nil
 
-      
   private
 
     def user_params
@@ -55,13 +53,5 @@ class UsersController < ApplicationController
     
     def user_helper
       @user = User.find_by(params[:id])
-    end
-
-    def update_attribute?
-      params[:commit] == "B"
-    end
-
-    def update_key?
-      params[:commit] == "A"
     end
 end

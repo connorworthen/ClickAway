@@ -9,10 +9,17 @@
 <%= f.password_field :password %>
 
 
-<%= f.submit "A" %><br>
+<%= f.submit "update1" %><br>
 
+<%
+=begin%>
 <h4>By saving changes, you are now a manufacturer</h4>
+<%
+=end%>
 
-<%= f.submit "B" %>
-
+<%
+=begin%>
+<%= f.submit "update2", name: "update2" %>
+<%
+=end%>
 <% end %>
