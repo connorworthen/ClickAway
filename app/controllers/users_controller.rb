@@ -14,14 +14,6 @@ class UsersController < ApplicationController
     end
   end 
 
-  def approve
-    user_helper
-    @user.update_attribute(:manufacturer, 'true')
-    @user.update_attribute(:updated_at, Time.now)
-    redirect_to '/'
-  end
-
-  
   def show
     user_helper
   end 
@@ -33,6 +25,7 @@ class UsersController < ApplicationController
   def update
       user_helper
       @user.update(user_params)
+      @user.update_attribute(:manufacturer, 'true')
       if @user.save
         redirect_to users_path(@user)
       else 

@@ -51,7 +51,7 @@ class ManufacturersController < ApplicationController
     private 
 
     def manufacturer_params
-        params.require(:manufacturer).permit(:name, :bio, :established)
+        params.require(:manufacturer).permit(:company_name, :bio, :established)
     end
 
     def manufacturer_helper
