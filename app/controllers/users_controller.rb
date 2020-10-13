@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_action :require_log_in, only: [:new, :create, :edit, :update]
-  before_action :true_false, only: [:edit]
 
   def new
     @user = User.new
@@ -24,9 +23,25 @@ class UsersController < ApplicationController
     user_helper
   end
 
+  # def update
+  #   user_helper
+  #   # user.update_attribute(:manufacturer, true)
+  #   if @user.save
+  #     redirect_to users_path(@user)
+  #   else 
+  #     render :edit 
+  #   end
+  # end
+
   def update
-   
+    @user = User.find(params[:id])
+    if @user.update_attribute(:manufacturer, false)
+      flash[:notice] = "This user was approved to be a manufacturer."
+      redirect_to '/'
+    else
+      flash[:error] = "There was an error approving the manufacturer. Please try again."
   end
+end 
       
   private
 
