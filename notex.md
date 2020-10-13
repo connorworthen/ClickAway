@@ -32,3 +32,18 @@ Not yet approved. (<%= link_to "Approve", manufacturer_user_path(@user), :method
 
     <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
     <% end %>
+
+connorworthen
+connor22
+
+testaccount
+test123
+
+def update
+user_helper # if @user.update_attributes(params[:user])
+if @user.update_attribute(:manufacturer, 'true') # if @user.save
+redirect_to users_path(@user)
+else
+render :edit
+end
+end
