@@ -5,4 +5,9 @@ class User < ApplicationRecord
   
   # attr_accessible :name, :password, :manufacturer, :approved_on
   validates :name, presence: true
+  after_update :set_manufacturer
+
+  def set_manufacturer
+    self.manufacturer = true
+  end
 end

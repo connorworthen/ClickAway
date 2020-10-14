@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_log_in, only: [:new, :create, :edit, :update]
+  # before_action :require_log_in, only: [:new, :create, :edit, :update]
 
   def new
     @user = User.new
@@ -20,11 +20,11 @@ class UsersController < ApplicationController
   end 
 
   def edit
-    user_helper
+    @user = User.find(current_user.id)
   end
 
   def update
-    @user = User.find_by_id(2)
+    @user = User.find(params[:id])  
     @user.update(user_params)
     if @user.save
       redirect_to '/'
