@@ -10,26 +10,22 @@ class User < ApplicationRecord
   # validates :password_confirmation, presence: true, on: :update, if: :password_digest_changed?
 
   # validates :name, presence: true, confirmation: true, on: :create
-  # validates :name, presence: true, confirmation: true, on: :update, if: :name_changed?
-  # validates :name_confirmation, presence: true, on: :create
-  # validates :name_confirmation, presence: true, on: :update, if: :name_changed?
+  # # validates :name, presence: true, confirmation: true, on: :update, if: :name_changed?
+  # validates :name, presence: true, on: :create
+  # validates :name, presence: true, on: :update
 
-  def password_changed?
+   after_update :set_manufacturer, if: :password_blank? && :name_blank?
+
+  def password_blank?
     self.password.blank?
   end
 
-  def name_changed?
+  def name_blank?
     self.name.blank?
   end
 
-  after_update :set_manufacturer, if: :password_changed? && :name_changed?
-
   def set_manufacturer
-    self.manufacturer = true
+    self.manufacturer = false
   end
-
-  # def set_user
-  #   self.manufacturer = false
-  # end
 
 end
