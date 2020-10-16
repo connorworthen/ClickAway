@@ -2,14 +2,26 @@
 
 <%= form_for(@user, url: signup_path) do |f| %>
 
-<%= f.label :name %><br />
-<%= f.text_field :name%>
+<div class="field">
+  <%= f.label :name %><br />
+  <%= f.text_field :name%>
+</div>
 
-<%= f.label :password %><br />
-<%= f.password_field :password %>
+<div class="field">
+  <%= f.label :password %><br />
+  <%= f.password_field :password %>
+</div><br>
 
-<%= f.check_box :admin, checked: "checked" %>
+<div class="field">
+  <h4><strong>Please note: By checking the box you will be granted access to create a manufacturer. <br> If you wish not to become a manufacturer, do not check the box and submit the form.</strong></h4>
+</div>
 
-<%= f.submit "Sign up" %>
+<div class="field">
+  <%= f.check_box :admin, checked: "checked" %>
+</div><br>
+
+<div class="actions">
+  <%= f.submit "Sign up" %>
+</div>
 
 <% end %>
