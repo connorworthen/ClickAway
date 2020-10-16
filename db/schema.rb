@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_16_220421) do
+ActiveRecord::Schema.define(version: 2020_10_16_225012) do
 
   create_table "manufacturers", force: :cascade do |t|
     t.string "comapny_name"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2020_10_16_220421) do
     t.boolean "manufacturer", default: false
     t.datetime "approved_on"
     t.boolean "admin", default: false
+    t.datetime "remember_created_at"
   end
 
 end
