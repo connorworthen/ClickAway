@@ -2,12 +2,13 @@
 
 <%= form_for(@user, url: signup_path) do |f| %>
 
-
 <%= f.label :name %><br />
 <%= f.text_field :name%>
 
 <%= f.label :password %><br />
 <%= f.password_field :password %>
+
+<%= f.check_box :admin, checked: "checked" %>
 
 <%= f.submit "Sign up" %>
 

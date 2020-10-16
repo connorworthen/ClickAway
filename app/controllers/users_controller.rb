@@ -33,18 +33,6 @@ class UsersController < ApplicationController
     end 
   end
 
-  # def update
-  #   @user = User.find(params[:id])
-  #   if
-  #     @user.toggle(:manufacturer).save
-  #     redirect_to '/'
-  #   else
-  #     redirect_to '/'
-  #   end
-  # end
-
-# delete accounts/ toggle! ? / if params1 no change then else or empty or nil
-
   private
 
     def user_params
