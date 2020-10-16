@@ -28,8 +28,8 @@ class UsersController < ApplicationController
     @user.update(user_params)
     if @user.save
       redirect_to '/'
-    else 
-      render :edit 
+    else
+      render :edit
     end 
   end
 
@@ -54,4 +54,5 @@ class UsersController < ApplicationController
     def user_helper
       @user = User.find_by(params[:id])
     end
+
 end
