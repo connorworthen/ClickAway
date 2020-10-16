@@ -9,8 +9,7 @@
 <%= f.label :password %>
 <%= f.password_field :password %>
 
-<%= check_box_tag "admin", value, true %>
-
+<%= f.check_box :admin, checked: "checked" %>
 
 <%= f.submit "Update Profile" %><br>
 

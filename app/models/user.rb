@@ -4,26 +4,23 @@ class User < ApplicationRecord
   has_many :products, through: :reviews 
   
   # attr_accessible :name, :password, :manufacturer, :approved_on
-  
-  # validate :name_and_password
+  after_update :check_admin?, unless: :admin_blank?
 
-  # private
-  # # def name_or_surname
-  # #   if name.present? || surname.present?
-  # #     errors.add(:name, "must be present") unless name.present?
-  # #     errors.add(:surname, "must be present") unless surname.present?
-  # #   end
-  # # end
-
-
-  # def name_and_password
-  #   if name.present? || password.present?
-  #     errors.add(:name, "must be present") unless name.present?
-  #     errors.add(:password, "must be present") unless password.present?
-  #   else name.blank? || password.blank?
-  #     self.manufacturer = true
-  #   end
+  # def password_blank?
+  #   self.password.blank?
   # end
+
+  # def name_blank?
+  #   self.name.blank?
+  # end
+
+  def admin_blank?
+    self.admin.blank?
+  end
+
+  def check_admin?
+    self.admin = true
+  end
 
 
   # validates :name, presence: true, uniqueness: true
