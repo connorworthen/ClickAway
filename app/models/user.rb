@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_secure_password
   has_many :reviews
   has_many :products, through: :reviews 
-  # belongs_to :manufacturer, => { where(admin: true)}, :foreign_key => :manufacturer_id
+  has_one :manufacturer, -> { where admin: true }
 
   validates :name, :presence => true, :uniqueness => true, :length => { :in => 4..16 }
   validates :password, :confirmation => true #password_confirmation attr
