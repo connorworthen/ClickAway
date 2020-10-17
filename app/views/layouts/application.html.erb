@@ -28,7 +28,7 @@
             <% if current_user %>
             <li><%= link_to 'Home', root_path %></li>
             <li><%= link_to  "Become a Manufacturer", edit_user_path(current_user) %></li>
-            <li><%= link_to  "Create Manufacturer", new_manufacturer_path %></li>
+            <li><%= link_to  "Create Manufacturer", new_manufacturer_path(current_user) %></li>
             <li><%= link_to "Create a Product", new_manufacturer_product_path(:manufacturer_id, @product) %></li>
             <li><%= link_to 'Log Out', logout_path, method: :delete %></li>
             <% else %>

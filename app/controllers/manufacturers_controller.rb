@@ -1,16 +1,8 @@
 class ManufacturersController < ApplicationController
-    before_action :require_log_in, only: [:show]
-    # before_action :correct_user, only: [:edit, :update, :destroy]
-
-    # def correct_user
-    #     @manufacturer = Manufacturer.find_by(id: params[:id])
-    #     return unless current_user
-    #     flash[:alert] = "You are not allowed to access this part of the site"
-    #     redirect_to root_path
-    # end
+    # before_action :require_log_in, only: [:show]
+    before_action :admin_user
 
     def index
-        manufacturer_helper
         @manufacturers = Manufacturer.all
     end
       
@@ -51,7 +43,7 @@ class ManufacturersController < ApplicationController
     private 
 
     def manufacturer_params
-        params.require(:manufacturer).permit(:company_name, :bio, :established)
+        params.require(:manufacturer).permit(:compny_name, :bio, :established)
     end
 
     def manufacturer_helper

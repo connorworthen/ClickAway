@@ -1,5 +1,4 @@
 <h1>Create New Manufacturer</h1>
-<% if @user.manufacturer? %>
 
 <%= form_with(model: @manufacturer, local: true) do |f| %>
 
@@ -13,11 +12,5 @@
 <%= f.text_area :bio, :cols => 50, :rows => 7 %><br><br>
 
 <%= f.submit "Create Manufacturer" %><br><br>
-
-<% end %>
-
-<% else %>
-
-Not yet approved. (<%= link_to "Approve", manufacturer_user_path(@user), :method => :put %>)
 
 <% end %>

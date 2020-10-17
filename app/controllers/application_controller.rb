@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   helper_method :logged_in?
   helper_method :current_user
   helper_method :require_log_in
+  # helper_method :admin_user
   
   def logged_in?
     !!session[:user_id]
@@ -16,5 +17,13 @@ class ApplicationController < ActionController::Base
       redirect_to '/'
     end 
   end
+
+  # def admin_user
+  #   if current_user.admin = true
+  #     redirect_to new_manufacturer_path(current_user)
+  #   else
+  #     redirect_to '/'
+  #   end
+  # end
 
 end
