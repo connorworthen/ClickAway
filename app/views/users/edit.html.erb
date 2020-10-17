@@ -1,16 +1,13 @@
-<h1>Update your Profile || Become a Manufacturer</h1>
-<p><strong>Please Note: By leaving the fields blank and submitting the form you will be granted access to create a manufacturer. If you do not wish to become a manufacturer, update your profile and submit the form.</strong></p>
+<h1>Update your Profile </h1>
 
 <%= form_for(@user) do |f| %>
 
-<%= f.label :name %>
-<%= f.text_field :name %>
+<p> Name:</br> <%= f.text_field :name%> </p>
 
-<%= f.label :password %>
-<%= f.password_field :password %>
+<p> Password:</br> <%= f.password_field :password%> </p>
 
-<%= f.check_box :admin, checked: "checked" %>
+<p> Password Confirmation:</br> <%= f.password_field :password_confirmation%> </p>
 
-<%= f.submit "Update Profile" %><br>
+<%= f.submit "Update Profile" %>
 
 <% end %>
