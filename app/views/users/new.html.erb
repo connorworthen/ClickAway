@@ -1,27 +1,17 @@
-<h2>Sign up</h2>
+<h1>Sign up</h1><br>
 
 <%= form_for(@user, url: signup_path) do |f| %>
 
-<div class="field">
-  <%= f.label :name %><br />
-  <%= f.text_field :name%>
-</div>
+<p> Name:</br> <%= f.text_field :name%> </p>
 
-<div class="field">
-  <%= f.label :password %><br />
-  <%= f.password_field :password %>
-</div><br>
+<p> Password:</br> <%= f.password_field :password%> </p>
 
-<div class="field">
-  <h4><strong>Please note: By checking the box you will be granted access to create a manufacturer. <br> If you wish not to become a manufacturer, do not check the box and submit the form.</strong></h4>
-</div>
+<p> Password Confirmation:</br> <%= f.password_field :password_confirmation%> </p>
 
-<div class="field">
-  <%= f.check_box :admin, checked: "checked" %>
-</div><br>
+<h4><strong>Please note: By checking the box you will be granted access to create a manufacturer. <br> If you wish not to become a manufacturer, do not check the box and submit the form.</strong></h4>
 
-<div class="actions">
-  <%= f.submit "Sign up" %>
-</div>
+<%= f.check_box :admin, checked: "checked" %><br><br>
+
+<%= f.submit :Signup %>
 
 <% end %>
