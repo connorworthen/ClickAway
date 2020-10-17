@@ -1,6 +1,6 @@
 class ManufacturersController < ApplicationController
     # before_action :require_log_in, only: [:show]
-    before_action :admin_user
+    before_action :is_admin?
 
     def index
         @manufacturers = Manufacturer.all
@@ -48,6 +48,10 @@ class ManufacturersController < ApplicationController
 
     def manufacturer_helper
         @manufacturer = Manufacturer.find_by(params[:id])
+    end
+
+    def is_admin?
+        redirect_to root_path unless current_user.admin? 
     end
 
 end

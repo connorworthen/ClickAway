@@ -18,12 +18,4 @@ class ApplicationController < ActionController::Base
     end 
   end
 
-  # def admin_user
-  #   if current_user.admin = true
-  #     redirect_to new_manufacturer_path(current_user)
-  #   else
-  #     redirect_to '/'
-  #   end
-  # end
-
 end
