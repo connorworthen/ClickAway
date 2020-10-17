@@ -1,12 +1,5 @@
 class ProductsController < ApplicationController
-    before_action :correct_user, only: [:edit, :update, :destroy]
-
-    def correct_user
-        @manufacturer = Manufacturer.find_by(id: params[:id])
-        return if current_user
-        flash[:alert] = "You are not allowed to access this part of the site"
-        redirect_to root_path
-    end
+    before_action :is_admin?, expect: [:index, :show]
 
     def index
         product_helper
@@ -63,6 +56,10 @@ class ProductsController < ApplicationController
 
     def product_helper
         @product = Product.find_by(params[:id])
+    end
+
+    def is_admin?
+        redirect_to root_path unless current_user.admin? 
     end
 
 end
