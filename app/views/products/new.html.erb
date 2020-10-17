@@ -12,7 +12,7 @@
 <%= f.number_field :stock, {min: 1, max: 10000} %><br><br>
 
 <%= f.label :manufacturer_id, "Manufacturer:" %>
-<%= f.collection_select :manufacturer_id, Manufacturer.all.sort_by{|m| m.comapny_name}, :id, :comapny_name, prompt: true  %><br><br>
+<%= f.collection_select :manufacturer_id, Manufacturer.all.sort_by{|m| m.name}, :id, :name, prompt: true  %><br><br>
 
 <%= f.label :description, "Description:" %>
 <%= f.text_area :description, :cols => 50, :rows => 7 %><br><br>
