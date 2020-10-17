@@ -21,6 +21,7 @@ review join table
 
 TO-DO-LIST:
 need to make \_form html pages
+user if admin can edit + delete profile + manufacturer profile in one page
 
 Check-list:
 user signup + sign in + logout + edit all work
