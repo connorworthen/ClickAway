@@ -1,10 +1,6 @@
 class ManufacturersController < ApplicationController
     # before_action :require_log_in, only: [:show]
-    before_action :is_admin?, expect: [:index, :show]
-
-    def index
-        @manufacturers = Manufacturer.all
-    end
+    before_action :is_admin?
       
     def new
         @manufacturer = Manufacturer.new
