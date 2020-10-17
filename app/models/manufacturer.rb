@@ -1,4 +1,4 @@
 class Manufacturer < ApplicationRecord
   has_many :products
-  has_one :user
+  has_many :reviews, through: :products 
 end

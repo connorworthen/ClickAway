@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_17_020306) do
+ActiveRecord::Schema.define(version: 2020_10_12_235515) do
 
   create_table "manufacturers", force: :cascade do |t|
     t.string "name"
@@ -18,13 +18,6 @@ ActiveRecord::Schema.define(version: 2020_10_17_020306) do
     t.string "bio"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "manufacturers_users", id: false, force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "manufacturer_id", null: false
-    t.index ["manufacturer_id"], name: "index_manufacturers_users_on_manufacturer_id"
-    t.index ["user_id"], name: "index_manufacturers_users_on_user_id"
   end
 
   create_table "products", force: :cascade do |t|
