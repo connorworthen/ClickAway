@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'auth/failure', to: redirect('/')
 
   resources :users
+  resources :products
 
   resources :manufacturers, only: [:show, :search, :new, :create, :update, :destroy] do
     resources :products, only: [:new, :create, :update, :delete]

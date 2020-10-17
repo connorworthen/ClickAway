@@ -1,15 +1,15 @@
-<h1>Create New Product</h1>
-
-<h4><%= link_to "Create a new product", new_product_path %></h4>
-
 <h1>All Products</h1>
 
-<% @product.each do |p| %>
-<h4>
-  <%= link_to p.name, user_products_path(p) %>
-  |<%= link_to 'Edit', edit_products_path %>
-  <%= link_to  "Rate a Product", new_product_review(p) %>
-  |<%= link_to 'Remove', products_path(@product), :confirm => 'Are you sure?', :method => :delete %>|
-</h4>
+<% @products.each do |product| %>
+
+<li>Name: <%= product.name %></li><br>
+
+<li>Price: <%= product.price %></li><br>
+
+<li>Stock: <%= product.stock %></li><br>
+
+<li>Description: <%= product.description %></li><br>
+
+<li>Manufacturer: <%= product.manufacturer_id %></li><br>
 
 <% end %>
