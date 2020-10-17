@@ -1,9 +1,11 @@
 manufact
 has many products
+has one user
 
 user
 has many reviews
 has mnay products through reviews
+belongs to manufacturer if condtion
 
 review
 belongs to user

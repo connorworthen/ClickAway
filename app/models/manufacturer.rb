@@ -1,4 +1,4 @@
 class Manufacturer < ApplicationRecord
   has_many :products
-  belongs_to :user
+  has_one :user
 end

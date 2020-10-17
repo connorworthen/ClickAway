@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_secure_password
   has_many :reviews
   has_many :products, through: :reviews 
-  has_one :manufacturer, -> { where admin: true }
+  belongs_to :manufacturer
 
   validates :name, :presence => true, :uniqueness => true, :length => { :in => 4..16 }
   validates :password, :confirmation => true #password_confirmation attr
