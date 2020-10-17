@@ -10,32 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_16_225012) do
+ActiveRecord::Schema.define(version: 2020_10_12_235515) do
 
   create_table "manufacturers", force: :cascade do |t|
-    t.string "comapny_name"
-    t.string "bio"
+    t.string "name"
     t.integer "established"
+    t.string "bio"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "products", force: :cascade do |t|
     t.string "name"
-    t.integer "stock"
+    t.float "stock"
     t.float "price"
     t.text "description"
+    t.integer "manufacturer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "password_digest"
+    t.boolean "admin", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "manufacturer", default: false
-    t.datetime "approved_on"
-    t.boolean "admin", default: false
-    t.datetime "remember_created_at"
   end
 
 end
