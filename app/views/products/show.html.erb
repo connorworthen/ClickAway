@@ -12,4 +12,8 @@
 
 <li>Manufacturer: <%= product.manufacturer_id %></li><br>
 
+<%= link_to  "See All Reviews on this Product", product_review_path(@product, @review) %><br>
+
+<%= link_to  "Review this Product", new_product_review_path(@product) %>
+
 <% end %>

@@ -1,8 +1,4 @@
-<% @products.each do |product| %>
-
 <h4>Review: <%= @product.name %> </h4>
-
-<% end %>
 
 <%= form_with(model: @review, url: [@product, @review], local: true) do |f| %>
 

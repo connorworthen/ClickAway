@@ -8,7 +8,9 @@ class ProductsController < ApplicationController
 
     def show
         product_helper
+        @review = Review.find_by(params[:id])
         @products = Product.all
+        @reviews = Review.all
     end
 
     def new
