@@ -1,5 +1,9 @@
-<% @product.reviews.each do |review| %>
+<h1><%="Review on #{@product.name}" %></h1>
 
-<li>Rating: <%= @product.reviews.rating %></li><br>
+<% @reviews.each do |review| %>
 
-<li>Comment: <%= @product.reviews.comment %></li><br>
+<li>Rating: <%= review.rating %></li><br>
+
+<li>Comment: <%= review.comment %></li><br>
+
+<% end %>

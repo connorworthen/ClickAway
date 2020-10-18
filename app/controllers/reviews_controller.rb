@@ -18,6 +18,10 @@ class ReviewsController < ApplicationController
     end 
 
     def show
+        review_helper
+        @product= Product.find_by(params[:id])
+        @products = Product.all
+        @reviews = Review.all
     end 
 
     def destroy
