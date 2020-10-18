@@ -1,16 +1,14 @@
 class ProductsController < ApplicationController
-    before_action :is_admin?, expect: [:index, :show]
+    before_action :admin?, only: [:new, :create, :edit, :update]
 
     def index
-        product_helper
-        @products = Product.all
-    end
-
-    def show
         product_helper
         @review = Review.find_by(params[:id])
         @products = Product.all
         @reviews = Review.all
+    end
+
+    def show
     end
 
     def new
@@ -58,8 +56,8 @@ class ProductsController < ApplicationController
         @product = Product.find_by(params[:id])
     end
 
-    def is_admin?
-        redirect_to root_path unless current_user.admin? 
+    def admin?
+        current_user.admin = true
     end
 
 end

@@ -1,24 +1,19 @@
-<h1>Products Index</h1>
-
-<% if current_user.admin? %>
-
-test
-
-
-
-
-<% else %>
+<h1>All Products</h1>
 
 <% @products.each do |product| %>
 
-<li>Name: <%= @product.name %></li><br>
+<li>Name: <%= product.name %></li><br>
 
-<li>Price: <%= @product.price %></li><br>
+<li>Price: <%= product.price %></li><br>
 
-<li>Stock: <%= @product.stock %></li><br>
+<li>Stock: <%= product.stock %></li><br>
 
-<li>Description: <%= @product.description %></li><br>
+<li>Description: <%= product.description %></li><br>
 
-<li>Manufacturer: <%= @product.manufacturer_id %></li><br>
+<li>Manufacturer: <%= product.manufacturer_id %></li><br>
+
+<%= link_to  "See All Reviews on this Product", product_review_path(@product, @review) %><br>
+
+<%= link_to  "Review this Product", new_product_review_path(@product) %>
 
 <% end %>
