@@ -20,7 +20,7 @@ class ReviewsController < ApplicationController
 
     def show
         review_helper
-        @product= Product.find_by(params[:id])
+        @product = Product.find_by(params[:id])
         @products = Product.all
         @reviews = Review.all
     end 
