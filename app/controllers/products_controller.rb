@@ -1,5 +1,4 @@
 class ProductsController < ApplicationController
-    before_action :admin?, only: [:new, :create, :edit, :update]
 
     def index
         product_helper
@@ -14,6 +13,7 @@ class ProductsController < ApplicationController
     def new
         @manufacturer = Manufacturer.find_by(params[:id])
         @product = Product.new 
+        redirect_to root_path, warning: "You are not authorized" unless current_user.admin?
     end 
     
     def create
@@ -54,10 +54,6 @@ class ProductsController < ApplicationController
 
     def product_helper
         @product = Product.find_by(params[:id])
-    end
-
-    def admin?
-        current_user.admin = true
     end
 
 end
