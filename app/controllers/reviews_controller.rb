@@ -5,6 +5,7 @@ class ReviewsController < ApplicationController
         @product = Product.find_by(params[:id])
         @products = Product.all
         @review = Review.new
+        redirect_to root_path, warning: "You are not authorized" unless !current_user.admin?
     end 
 
     def create 
